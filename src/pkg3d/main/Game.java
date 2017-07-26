@@ -1,12 +1,13 @@
 package pkg3d.main;
 
+import pkg3d.engine.GameLoop;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
-import pkg3d.main.gfx.Display;
+import pkg3d.engine.gfx.Display;
 import pkg3d.main.states.GameState;
-import pkg3d.main.states.State;
+import pkg3d.engine.states.State;
 
 /**
  *
@@ -20,6 +21,8 @@ public class Game extends GameLoop{
     private int width, height;
     
     private Handler handler;
+    
+    
     
     private State gameState;
     

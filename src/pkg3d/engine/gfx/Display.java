@@ -1,4 +1,4 @@
-package pkg3d.main.gfx;
+package pkg3d.engine.gfx;
 
 import java.awt.Canvas;
 import java.awt.Dimension;

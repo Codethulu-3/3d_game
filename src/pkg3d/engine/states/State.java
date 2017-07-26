@@ -1,4 +1,4 @@
-package pkg3d.main.states;
+package pkg3d.engine.states;
 
 import java.awt.Graphics;
 import pkg3d.main.Handler;
