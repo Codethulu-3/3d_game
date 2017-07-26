@@ -1,8 +1,8 @@
-package pkg3d.main.states;
+package pkg3d.game.states;
 
-import pkg3d.engine.states.State;
+import pkg3d.engine.State;
 import java.awt.Graphics;
-import pkg3d.main.Handler;
+import pkg3d.game.Handler;
 
 /**
  *

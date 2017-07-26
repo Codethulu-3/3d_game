@@ -1,4 +1,4 @@
-package pkg3d.main;
+package pkg3d.game;
 
 import pkg3d.engine.GameLoop;
 import java.awt.Graphics;
@@ -6,8 +6,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferStrategy;
 import pkg3d.engine.gfx.Display;
-import pkg3d.main.states.GameState;
-import pkg3d.engine.states.State;
+import pkg3d.game.states.GameState;
+import pkg3d.engine.State;
 
 /**
  *

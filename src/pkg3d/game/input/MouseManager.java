@@ -1,4 +1,4 @@
-package pkg3d.main.input;
+package pkg3d.game.input;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

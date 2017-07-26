@@ -1,4 +1,4 @@
-package pkg3d.main;
+package pkg3d.game;
 
 /**
  *
