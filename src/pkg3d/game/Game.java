@@ -1,5 +1,6 @@
 package pkg3d.game;
 
+import java.awt.Color;
 import pkg3d.engine.GameLoop;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
@@ -8,6 +9,8 @@ import java.awt.image.BufferStrategy;
 import pkg3d.engine.gfx.Display;
 import pkg3d.game.states.GameState;
 import pkg3d.engine.State;
+import pkg3d.game.input.KeyManager;
+import pkg3d.game.input.MouseManager;
 
 /**
  *
@@ -22,7 +25,8 @@ public class Game extends GameLoop{
     
     private Handler handler;
     
-    
+    private KeyManager keyManager;
+    private MouseManager mouseManager;
     
     private State gameState;
     
@@ -41,6 +45,18 @@ public class Game extends GameLoop{
         });
         
         handler = new Handler(this);
+        
+        //input
+        keyManager = new KeyManager();
+        mouseManager = new MouseManager();
+        
+        display.getFrame().addKeyListener(keyManager);
+        display.getCanvas().addKeyListener(keyManager);
+        
+        display.getFrame().addMouseListener(mouseManager);
+        display.getCanvas().addMouseListener(mouseManager);
+        display.getFrame().addMouseMotionListener(mouseManager);
+        display.getCanvas().addMouseMotionListener(mouseManager);
         
         //states
         gameState = new GameState(handler);
@@ -69,6 +85,9 @@ public class Game extends GameLoop{
 	//Clear Screen
 	g.clearRect(0, 0, width, height);
         
+        g.clipRect(0, 0, width, height);
+        g.setColor(new Color(140, 180, 180));
+        g.fillRect(0, 0, width, height);
         State.getState().render(g);
         
 	bs.show();

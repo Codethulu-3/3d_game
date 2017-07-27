@@ -13,9 +13,7 @@ public class Camera {
     private double minZoom=500, maxZoom=1500, startZoom=1000;
     private double zoomSpeed=20.5;
     
-    //coordinates
-    private double[] viewFrom = new double[]{0, 0, 60},//starting coordinates 
-            viewTo = new double[]{0, 0, 0};
+
     
     //viewing
     public double movementSpeed = 001.5;
@@ -28,11 +26,6 @@ public class Camera {
         this.horLook = horLook;
         this.horRotSpeed = horRotSpeed;
         this.vertRotSpeed = vertRotSpeed;
-    }
-    
-    public void updatePos(double[] viewFrom, double[] viewTo){
-        this.viewFrom = viewFrom;
-        this.viewTo = viewTo;
     }
     
     private void calculateZoom(double zoom){
@@ -60,11 +53,9 @@ public class Camera {
         if (vertLook < -0.999) {
             vertLook = -0.999;
         }
-
-        updateView();
     }
     
-    public Vector moveForward(){
+    public Vector moveForward(double[] viewFrom, double[] viewTo){
         Vector viewVector = new Vector(viewTo[0] - viewFrom[0], viewTo[1] - viewFrom[1], viewTo[2] - viewFrom[2]);
         double xMove = 0, yMove = 0, zMove = 0;
 
@@ -75,7 +66,7 @@ public class Camera {
         return moveVector;
     }
     
-    public Vector moveBackwards(){
+    public Vector moveBackwards(double[] viewFrom, double[] viewTo){
         Vector viewVector = new Vector(viewTo[0] - viewFrom[0], viewTo[1] - viewFrom[1], viewTo[2] - viewFrom[2]);
         double xMove = 0, yMove = 0, zMove = 0;
 
@@ -86,7 +77,7 @@ public class Camera {
         return moveVector;
     }
     
-    public Vector moveRight(){
+    public Vector moveRight(double[] viewFrom, double[] viewTo){
         Vector viewVector = new Vector(viewTo[0] - viewFrom[0], viewTo[1] - viewFrom[1], viewTo[2] - viewFrom[2]);
         double xMove = 0, yMove = 0, zMove = 0;
         Vector verticalVector = new Vector(0, 0, 1);
@@ -99,7 +90,7 @@ public class Camera {
         return moveVector;
     }
     
-    public Vector moveLeft(){
+    public Vector moveLeft(double[] viewFrom, double[] viewTo){
         Vector viewVector = new Vector(viewTo[0] - viewFrom[0], viewTo[1] - viewFrom[1], viewTo[2] - viewFrom[2]);
         double xMove = 0, yMove = 0, zMove = 0;
         Vector verticalVector = new Vector(0, 0, 1);
@@ -112,17 +103,6 @@ public class Camera {
         return moveVector;
     }
     
-    public void moveTo(double x, double y, double z) {
-        viewFrom[0] = x;
-        viewFrom[1] = y;
-        viewFrom[2] = z;
-        updateView();
-    }
-    
-    private void updateView() {
-        double r = Math.sqrt(1 - (vertLook * vertLook));
-        viewTo[0] = viewFrom[0] + r * Math.cos(horLook);
-        viewTo[1] = viewFrom[1] + r * Math.sin(horLook);
-        viewTo[2] = viewFrom[2] + vertLook;
-    }
+    public double getVertLook(){return vertLook;}
+    public double getHorLook(){return horLook;}
 }
