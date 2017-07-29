@@ -97,4 +97,7 @@ public class Game extends GameLoop{
     //getter
     public int getScreenWidth(){return width;}
     public int getScreenHeight(){return height;}
+    
+    public KeyManager getKeyManager(){return keyManager;}
+    public MouseManager getMouseManager(){return mouseManager;}
 }
